@@ -570,80 +570,165 @@ body {
 
 /* Responsive Design */
 /* Mobile Responsive Styles Only */
-/* Mobile Responsive Styles Only */
-@media (max-width: 760px) {
-    /* General adjustments */
+/* MOBILE OPTIMIZED (≤768px) */
+@media (max-width: 768px) {
+    /* Global reset */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
     body {
-        min-width: 100%;
-        overflow-x: hidden;
+        font-size: 16px;
+        line-height: 1.5;
+        min-height: 100vh;
+        padding-bottom: 80px; /* prostor za footer */
+        background-color: #f8f8f8;
     }
-    
-    /* Header adjustments - keep desktop layout */
+
+    /* HEADER */
     .app-header {
-        padding: 0.8rem 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 15px;
     }
-    
+
     .logo h1 {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
+        text-align: center;
     }
-    
-    /* Game board adjustments - only change chip size */
-    .chip {
-        width: 40px;
-        height: 40px;
-        font-size: 14px;
-        margin: 1px;
-    }
-    
-    /* Ensure game controls stay centered */
-    .game-controls {
-        justify-content: center;
+
+    /* NAVIGACIJA */
+    .main-nav {
+        display: flex;
         flex-wrap: wrap;
-        gap: 0.5rem;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
     }
-    
-    /* Button tap targets */
-    .btn, .nav-btn {
-        min-height: 44px;
-        min-width: 44px;
+
+    .nav-btn {
+        flex: 1 1 45%;
+        padding: 12px;
+        font-size: 1rem;
+        min-width: 120px;
+        max-width: 100%;
+        text-align: center;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 8px;
     }
-    
-    /* Form adjustments */
+
+    /* SADRŽAJ */
+    .content-area {
+        padding: 20px;
+    }
+
+    /* IGRA */
+    .game-board-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 10px;
+        gap: 4px;
+    }
+
+    .chip {
+        width: 44px;
+        height: 44px;
+        font-size: 16px;
+        text-align: center;
+        border-radius: 50%;
+        background-color: #eee;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* FORME */
     .form-container {
         width: 100%;
-        max-width: 100%;
+        padding: 15px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
-    
-    /* Hero section */
-    .hero {
-        padding: 1rem;
+
+    .input-group input {
+        width: 100%;
+        padding: 14px;
+        font-size: 1rem;
+        border-radius: 6px;
+        border: 1px solid #ccc;
     }
-    
-    .hero h2 {
-        font-size: 1.8rem;
+
+    /* GUMBI */
+    .btn {
+        width: 100%;
+        padding: 14px;
+        font-size: 1rem;
+        border-radius: 6px;
+        margin-top: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
     }
-    
-    /* CTA buttons - keep inline */
-    .cta-buttons .btn {
-        margin: 0.3rem;
+
+    .start-btn {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    /* KONTROLE IGRE */
+    .game-controls {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    .game-controls .btn {
+        width: 100%;
+    }
+
+    /* STATUS PORUKA */
+    .game-status {
+        font-size: 1.2rem;
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    /* FOOTER */
+    .app-footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 12px;
+        text-align: center;
+        background-color: #fff;
+        font-size: 0.85rem;
+        border-top: 1px solid #ddd;
+        z-index: 1000;
+    }
+
+    /* Utility klase */
+    .mobile-hidden {
+        display: none !important;
+    }
+
+    .mobile-full-width {
+        width: 100% !important;
+    }
+
+    .mobile-text-center {
+        text-align: center !important;
     }
 }
 
-/* Very small devices - further chip size reduction */
-@media (max-width: 480px) {
-    .chip {
-        width: 35px;
-        height: 35px;
-        font-size: 12px;
-    }
-}
-
-/* Prevent zoom on inputs in mobile iOS */
-@supports (-webkit-touch-callout: none) {
-    input, select, textarea {
-        font-size: 16px !important;
-    }
-}
 
 /* Animations */
 @keyframes pulse {
