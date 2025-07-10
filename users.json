@@ -1,0 +1,74 @@
+{
+  "users": [
+    {
+      "nick": "ivan",
+      "pass": "0339df446b5ab1307d178b3f87a3d0fd",
+      "games": {}
+    },
+    {
+      "nick": "darko",
+      "pass": "8987278cab62c06f4cac746328b1d07c",
+      "games": {}
+    },
+    {
+      "nick": "Ivan",
+      "pass": "4eb274593fde2b15697a325349d89aa4",
+      "games": {}
+    },
+    {
+      "nick": "Filip",
+      "pass": "bdbacdcb5b90f4da47544992c5c3ed7d",
+      "games": {}
+    },
+    {
+      "nick": "kylianmbappe",
+      "pass": "268fb4595b079e19467c8feee67a856a",
+      "games": {}
+    },
+    {
+      "nick": "ivan2025",
+      "pass": "efaa8c44362bd2246873d2f1feb299b5",
+      "games": {}
+    },
+    {
+      "nick": "ousmanedembele",
+      "pass": "7bdf5faefa137542cc0eb0e5fa3ec800",
+      "games": {}
+    },
+    {
+      "nick": "dario2001",
+      "pass": "60f01953f46b0ea11299d02a7e4fdfe9",
+      "games": {}
+    },
+    {
+      "nick": "gvardiol2002",
+      "pass": "8b1c717fa49e7649f201654dbf8a62b7",
+      "games": {}
+    },
+    {
+      "nick": "ivan2024",
+      "pass": "$2b$10$Ewhb.Y//.DX4XDE5i/02RuLHdR1Wx7YeybdRFqntkXmS5LRAuQuye",
+      "games": {}
+    },
+    {
+      "user": "ivane",
+      "pass": "$2b$10$Kjq54OoU7X0UQDXbQYh22u2988IFt2wRYKsp7pCBX86HWYiVDPqfC",
+      "games": {}
+    },
+    {
+      "user": "ibro",
+      "pass": "$2b$10$MlEV6dzyUU/7Nr/3bgL8Ge8bGjGTKM3bW9yjQJzCwPAM3Tv7zHwom",
+      "games": {}
+    },
+    {
+      "user": "ivan2025",
+      "pass": "$2b$10$GU3c./sWTN01.2xpcJnn7O0cHwW9K7TxywCfbE5VMYu817nmz6S4m",
+      "games": {}
+    },
+    {
+      "user": "abcdefgh",
+      "pass": "$2b$10$a7g0vb8g9lUgw6VQbemoq.Vxijdhp3TMOznP79nxWpOb6N4i.Fvpu",
+      "games": {}
+    }
+  ]
+}

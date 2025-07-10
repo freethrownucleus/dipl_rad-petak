@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIM Game</title>
+    <link rel="icon" href="logo-nim.png" type="image/png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo" onclick="showFrontPage()">
+                <h1><i class="fas fa-coins"></i> NIM</h1>
+            </div>
+            <nav class="main-nav">
+                <button class="nav-btn" onclick="showRanks()">
+                    <i class="fas fa-trophy"></i> Top lista
+                </button>
+                <button id="play-btn" class="nav-btn primary" onclick="handlePlayButton()">
+                    <i class="fas fa-play"></i> Igraj
+                </button>
+                <button class="nav-btn" onclick="showRules()">
+                    <i class="fas fa-book"></i> Pravila
+                </button>
+            </nav>
+            <div id="user-profile" class="user-profile">
+                <span id="username-display"></span>
+                <button id="logout-btn" class="logout-btn" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="content-area">
+            <!-- Home Screen -->
+            <div id="homePageDiv" class="screen active">
+                <div class="hero">
+                    <h2>Dobrodošli u NIM</h2>
+                    <p>Matematička igra pametnog uklanjanja žetona</p>
+                    <div class="cta-buttons">
+                        <button class="btn primary" onclick="handlePlayButton()">
+                            <i class="fas fa-play"></i> Nova igra
+                        </button>
+                        <button class="btn secondary" onclick="showRules()">
+                            <i class="fas fa-book"></i> Nauči pravila
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Form -->
+            <div id="gameFormDiv" class="screen">
+                <div class="form-container">
+                    <!-- Login Form -->
+                    <div id="loginDiv" class="form-section">
+                        <h2><i class="fas fa-sign-in-alt"></i> Prijava</h2>
+                        <form id="userInputForm" class="auth-form">
+                            <div class="input-group">
+                                <label for="userInput"><i class="fas fa-user"></i> Korisničko ime</label>
+                                <input id="userInput" type="text" placeholder="Unesite korisničko ime">
+                            </div>
+                            <div class="input-group">
+                                <label for="passwordInput"><i class="fas fa-lock"></i> Lozinka</label>
+                                <input id="passwordInput" type="password" placeholder="Unesite lozinku">
+                            </div>
+                            <div id="wrongPasswordText" class="error-message">
+                                Pogrešno korisničko ime ili lozinka!
+                            </div>
+                            <button type="button" class="btn primary" onclick="login()">
+                                <i class="fas fa-sign-in-alt"></i> Prijavi se
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Game Options -->
+                    <div id="optionsDiv" class="form-section">
+                        <h2><i class="fas fa-cog"></i> Postavke igre</h2>
+                        <form class="game-options">
+                            <div class="option-group">
+                                <h3><i class="fas fa-chess-king"></i> Prvi na potezu</h3>
+                                <div id="playFirstForm" class="radio-group">
+                                    <label class="radio-option">
+                                        <input type="radio" name="playFirstButton" value="player" checked>
+                                        <span class="radio-checkmark"></span>
+                                        <span class="radio-label">Vi</span>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="playFirstButton" value="pc">
+                                        <span class="radio-checkmark"></span>
+                                        <span class="radio-label">Računalo</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="option-group">
+                                <h3><i class="fas fa-layer-group"></i> Veličina (broj redova)</h3>
+                                <div id="boardSizeForm" class="select-group">
+                                    <select id="boardSizeInput">
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4" selected>4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="option-group">
+                                <h3><i class="fas fa-gamepad"></i> Verzija igre</h3>
+                                <div id="gameVersionForm" class="radio-group">
+                                    <label class="radio-option">
+                                        <input type="radio" name="gameVersion" value="standard" checked>
+                                        <span class="radio-checkmark"></span>
+                                        <span class="radio-label">Standardna</span>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="gameVersion" value="misere">
+                                        <span class="radio-checkmark"></span>
+                                        <span class="radio-label">Misère</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="option-group">
+                                <h3><i class="fas fa-brain"></i> Razina</h3>
+                                <div id="difficultyForm" class="radio-group">
+                                    <label class="radio-option">
+                                        <input type="radio" name="difficulty" value="easy" checked>
+                                        <span class="radio-checkmark"></span>
+                                        <span class="radio-label">Lakša</span>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="difficulty" value="hard">
+                                        <span class="radio-checkmark"></span>
+                                        <span class="radio-label">Teža</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="option-group">
+                                <h3><i class="fas fa-clock"></i> Vrijeme za potez</h3>
+                                <div id="timerForm" class="radio-group">
+                                    <label class="radio-option">
+                                        <input type="radio" name="timerOption" value="none" checked>
+                                        <span class="radio-checkmark"></span>
+                                        <span class="radio-label">Bez mjerenja</span>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="timerOption" value="10">
+                                        <span class="radio-checkmark"></span>
+                                        <span class="radio-label">10 sekundi</span>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="timerOption" value="5">
+                                        <span class="radio-checkmark"></span>
+                                        <span class="radio-label">5 sekundi</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button id="startButton" class="btn primary start-btn" onclick="playGame()">
+                                <i class="fas fa-play"></i> <span class="btn-text">Započni igru</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Board -->
+            <div id="gameDiv" class="screen game-screen">
+                <div id="timerDisplay" class="timer"></div>
+                <div id="messageH1" class="game-status"></div>
+                <div class="game-board-container">
+                    <!-- Game board will be inserted here by JavaScript -->
+                </div>
+                <div class="cta-buttons">
+                    <button id="restartGameButton" class="btn icon-btn" onclick="restartGame()">
+                        <i class="fas fa-redo"></i>
+                    </button>
+                    <button id="leaveGameButton" class="btn secondary" onclick="leaveGame()">
+                        <i class="fas fa-home"></i> Povratak
+                    </button>
+                </div>
+            </div>
+
+            <!-- Rankings -->
+            <div id="rankingDiv" class="screen">
+                <div class="ranking-container">
+                    <h2><i class="fas fa-trophy"></i> Top lista igrača</h2>
+                    <div id="tableRankingDiv" class="rankings-table"></div>
+                    <button class="btn secondary back-btn" onclick="showFrontPage()">
+                        <i class="fas fa-arrow-left"></i> Nazad
+                    </button>
+                </div>
+            </div>
+
+            <!-- Rules -->
+            <div id="rulesDiv" class="screen">
+                <div class="rules-container">
+                    <h2><i class="fas fa-book"></i> Pravila igre</h2>
+                    <div class="rules-content">
+                        <ol>
+                            <li>Igra sadrži dva ili više redova s određenim brojem žetona u svakom redu.</li>
+                            <li>Igrač i računalo igraju naizmjence, a svatko uklanja proizvoljan broj žetona iz jednog od redova.</li>
+                            <li>Dvije su verzije igre: standardna i misère. U standardnoj verziji pobjednik je, a u misère verziji gubitnik onaj igrač koji ukloni zadnji žeton.</li>
+                            <li>U obje verzije igre ključ je držati se toga da igrač koji je na potezu ukloni broj žetona potreban da protivnika na potezu ostavi s NIM-sumom jednakom nuli.</li>
+                            <li>Standardna verzija igra se do kraja držeći se pravila broj 4.</li>
+                            <li>Misère verzija igra se kao i standardna sve do trenutka pri kraju igre kad ne preostanu barem 2 reda s barem 2 žetona u svakom.</li>
+                        </ol>
+                    </div>
+                    <button class="btn secondary back-btn" onclick="showFrontPage()">
+                        <i class="fas fa-arrow-left"></i> Nazad
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>© 2025 NIM Game | Matematička igra strategije</p>
+        </footer>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
