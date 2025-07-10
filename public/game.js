@@ -5,7 +5,7 @@ let timer;
 let timeLeft;
 let timerEnabled = false;
 let mainGame;
-let url = "https://dipl-rad-petak.onrender.com";
+let url = "https://dipl-rad-petak.onrender.com/";
 let divsArray = ["homePageDiv", "gameFormDiv", "gameDiv", "rankingDiv", "rulesDiv"];
 
 // Inicijalizacija DOM elemenata
