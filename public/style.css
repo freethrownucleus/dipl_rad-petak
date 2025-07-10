@@ -608,13 +608,12 @@ body {
         justify-content: center;
         gap: 10px;
         width: 100%;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 
     .nav-btn {
-        flex: 1 1 45%;
-        padding: 12px;
         font-size: 1rem;
-        min-width: 120px;
         max-width: 100%;
         text-align: center;
         background-color: #fff;
@@ -627,18 +626,21 @@ body {
         padding: 20px;
     }
 
+    .game-options {
+        gap: 1rem
+    }
+
     /* IGRA */
     .game-board-container {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        padding: 10px;
         gap: 4px;
     }
 
     .chip {
-        width: 44px;
-        height: 44px;
+        width: 40px;
+        height: 40px;
         font-size: 16px;
         text-align: center;
         border-radius: 50%;
@@ -667,7 +669,6 @@ body {
 
     /* GUMBI */
     .btn {
-        width: 100%;
         padding: 14px;
         font-size: 1rem;
         border-radius: 6px;
@@ -678,8 +679,7 @@ body {
     }
 
     .start-btn {
-        font-size: 1.2rem;
-        font-weight: bold;
+        font-size: 1.1rem;
     }
 
     /* KONTROLE IGRE */
